@@ -16,3 +16,6 @@ Este projeto visa apresentar um produto de software projetado para atender às n
 <li> Insira o nome do cliente na tabela </li> 
 <li> Consulte a tabela e veja o nome do cliente inserido </li> 
 </ol>
+
+### ⚠️IMPORTANTE⚠️
+Caso não execute estamos anexando o arquivo com os códigos utilizados para a criação do banco de dados para avaliação com o nome de "Codigos_SQLServer"
