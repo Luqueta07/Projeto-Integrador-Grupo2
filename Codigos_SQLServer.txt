@@ -1,0 +1,78 @@
+
+
+CREATE DATABASE Vigilancia
+ON 
+( NAME = Vigilancia_DAT,
+FILENAME = 'C:\BDVigilancia\Vigilancia_Dados.mdf',
+SIZE = 10,
+MAXSIZE = 50,
+FILEGROWTH = 5 )
+LOG ON
+( NAME = Vigilancia_VIG,
+FILENAME = 'C:\BDVigilancia\Vigilancia_vig.ldf',
+SIZE = 5MB,
+MAXSIZE = 25MB,
+FILEGROWTH = 5MB );
+GO
+
+
+Use Vigilancia
+
+GO
+CREATE TABLE Table_Cliente
+(CpfDoCliente VARCHAR(11) PRIMARY KEY NOT NULL,
+NomeCleinte VARCHAR(50) NOT NULL,
+SobrenomeCliente VARCHAR(50) NULL,
+TelefoneCliente CHAR(10) NULL,
+CelularCliente CHAR(11) NULL,
+EmailCliente VARCHAR(50) NULL
+
+
+
+
+
+insert into Table_Cliente (CpfDoCliente, NomeCliente, SobrenomeCliente, TelefoneCliente, CelularCliente, EmailCliente)
+values ('15036985245', 'Maria', 'Florinda', '1145467879', '11910546963','mariaflorinda@fake.com')
+
+select * from Table_Cliente
+
+
+
+insert into Table_Imovel(CodigoImovel , CpfDoCliente, EnderecoImovel, BairroImovel, CidadeImovel, EstadoImovel,LocalizacaoImovel)
+values ('10', '15036985245', 'Rua Cartola, 195', 'Santo Antonio', 'Franco da Rocha','SP','-23.30685414974687, -46.7138118172434')
+select * from Table_Imovel
+
+
+insert into Table_Plano(CodigoPlano , CodigoImovel, DescricaoPlano, ValorPlano)
+values ('900', '9', 'Vigilancia e monitoramento Externo', '150')
+
+select * from Table_Plano
+
+
+update Table_Plano
+set ValorPlano = '165'
+where CodigoPlano = '900'
+
+
+
+select * from Table_Plano
+
+
+
+insert into Table_Evento(CodigoEvento , CodigoImovel, DescricaoEvento, StatusEvento)
+values ('995', '9', 'Alarme disparado', 'Pendente')
+
+select * from Table_Evento
+
+use Vigilancia
+
+
+
+update Table_Evento
+set StatusEvento = 'Verificado'
+where StatusEvento = 'Pendente'
+
+update Table_Evento
+set OcorrenciaEvento = 'Entregador Mercado Livre'
+
+select * from Table_Evento
